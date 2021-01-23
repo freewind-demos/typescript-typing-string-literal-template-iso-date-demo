@@ -1,20 +1,49 @@
-import {SameShape} from "./SameShape";
+type Digit = '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9';
 
-// T doesn't make sense
-type MyInvalidType<T> = {}
+type Month = '01' | '02' | '03' | '04' | '05' | '06' | '07' | '08' | '09' | '10' | '11' | '12'
 
-// They are actually same
-const myInvalidTypesAreSame: SameShape<MyInvalidType<string>, MyInvalidType<number>> = true
+type Day =
+  '01'
+  | '02'
+  | '03'
+  | '04'
+  | '05'
+  | '06'
+  | '07'
+  | '08'
+  | '09'
+  | '10'
+  | '11'
+  | '12'
+  | '13'
+  | '14'
+  | '15'
+  | '16'
+  | '17'
+  | '18'
+  | '19'
+  | '20'
+  | '21'
+  | '22'
+  | '23'
+  | '24'
+  | '25'
+  | '26'
+  | '27'
+  | '28'
+  | '29'
+  | '30'
+  | '31'
 
-// compilation error:
-// const myInvalidTypesAreSame: SameShape<MyInvalidType<string>, MyInvalidType<number>> = false
 
-type MyValidType<T> = {
-  __taggedType?: T
-}
+// TS2590: Expression produces a union type that is too complex to represent.
+// type IsoDate = `${Digit}${Digit}${Digit}${Digit}-${Month}-${Day}`
 
-// They are not same now
-const sameMyValidType: SameShape<MyValidType<string>, MyValidType<number>> = false
+type IsoDate = `${'19' | '20'}${Digit}${Digit}-${Month}-${Day}`
 
-// compilation error:
-// const sameMyValidType: SameShape<MyValidType<string>, MyValidType<number>> = true
+
+
+
+
+
+

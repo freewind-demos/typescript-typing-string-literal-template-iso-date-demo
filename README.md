@@ -1,9 +1,15 @@
-TypeScript Typing Same Shape Demo
+TypeScript Typing String Literal Template ISO Date Demo
 ===========================
 
-定义一个SameShape的type helper，用于判断两个type是否拥有相同的shape（被认为是同一种type，可以互相赋值）
+typescript 4.1中提供了string literal template形式的类型定义，可以利用它定义一些复杂结构的string
 
-通过这个SameShape可以帮助我们在代码判断自己定义的一些复杂类型是否正确
+可惜union类型不能太复杂，所以想定义一个`YYYY-MM-DD`还是做不到，会报:
+
+```
+TS2590: Expression produces a union type that is too complex to represent.
+```
+
+的错误，只能先定义成`19YY-MM-DD`或者`20YY-MM-DD`
 
 ```
 npm install
