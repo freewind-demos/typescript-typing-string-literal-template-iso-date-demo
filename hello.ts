@@ -41,9 +41,15 @@ type Day =
 
 type IsoDate = `${'19' | '20'}${Digit}${Digit}-${Month}-${Day}`
 
+const date1: IsoDate = '2000-01-02';
+console.log("### date1", date1)
 
+function throwNewError(message: string): never {
+  throw new Error(message);
+}
 
-
-
-
+function optional(date: IsoDate | undefined): IsoDate {
+  // TS2590: Expression produces a union type that is too complex to represent.
+  return date ?? throwNewError('no date')
+}
 
